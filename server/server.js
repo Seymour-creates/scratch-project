@@ -28,17 +28,21 @@ app.get("/", /*cookieController.setSSIDCookie,*/ (req, res) => {
 })
 
 //login page path
-app.get('/login', userController.createUser,)
-// note from kerri - commented out cookieController.setCookie temp due to node errors
+// app.get('/login', userController.createUser,)
+// // note from kerri - commented out cookieController.setCookie temp due to node errors
 
-app.get("/login", (res, req) => {
-  console.log('login')
-  res.sendFile(path.resolve(__dirname, "../client/html-scss/login.html"));
-  console.log('login after')
-})
+// app.get("/login", (res, req) => {
+//   console.log('login')
+//   res.sendFile(path.resolve(__dirname, "../client/html-scss/login.html"));
+//   console.log('login after')
+// })
 
-// app.use('/api', apiRouter)
+app.use('/api/:stuff', apiRouter,(req,res)=>{
+  res.status(200).send(res.locals.books)
+});
 app.use('/db', libraryRouter);
+
+
 
 // catch all for requests to unknown route
 
