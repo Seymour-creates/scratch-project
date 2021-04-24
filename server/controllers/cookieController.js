@@ -16,7 +16,7 @@ cookieController.setSSIDCookie = (req, res, next) => {
       res.cookie('SSID', res.locals.id, { httpOnly: true, secure: true });
       return next();
     })
-    .catch(() => res.render('./../client/html-scss/signup'));
+    .catch((err) => { if (err) console.log(err); res.render('index')});
 };
 
 module.exports = cookieController;

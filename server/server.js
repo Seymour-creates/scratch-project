@@ -1,24 +1,34 @@
 const express = require('express');
 const path = require('path');
-// const cookieParser = require('cookie-parser');
+const cookieParser = require('cookie-parser');
 
-// const userController = require("./controllers/userController");
-// const cookieController = require("./controllers/cookieController");
-//const sessionController = require("./controllers/sessionController");
+
+const userController = require("./controllers/userController");
+const cookieController = require("./controllers/cookieController");
+// const sessionController = require("./controllers/sessionController");
 // note from kerri - commented out session controller temp due to node errors
+
 
 const app = express();
 const PORT = 3000;
+
+//load view engine
+app.set('views',path.join(__dirname,'../views'))
+app.set('view engine','pug')
 
 const apiRouter = require('./api/api_router.js');
 const libraryRouter = require('./api/libraryRouter.js');
 
 app.use(express.json());
+app.use(cookieParser());
 app.use(express.static(path.join(__dirname, './client/html-scss')));
 
-// app.get("/", cookieController.setSSIDCookie, (req, res) => {
-//     res.render("./../client/html-scss/login")
-// })
+app.get("/", /*cookieController.setSSIDCookie,*/ (req, res) => {
+    res.render('signup')
+})
+
+//login page path
+app.get('/login', userController.createUser,)
 // note from kerri - commented out cookieController.setCookie temp due to node errors
 
 // app.use('/api', apiRouter)
@@ -34,7 +44,7 @@ app.use((err, req, res, next) => {
   const defaultErr = {
     log: 'Express error handler caught unknown middleware error',
     status: 500,
-    message: { err: 'An error occurred' },
+    message: { err: 'An error occurred, but why tho?' },
   };
 
   const errObj = Object.assign({}, defaultErr, err);
