@@ -31,6 +31,12 @@ app.get("/", /*cookieController.setSSIDCookie,*/ (req, res) => {
 app.get('/login', userController.createUser,)
 // note from kerri - commented out cookieController.setCookie temp due to node errors
 
+app.get("/login", (res, req) => {
+  console.log('login')
+  res.sendFile(path.resolve(__dirname, "../client/html-scss/login.html"));
+  console.log('login after')
+})
+
 // app.use('/api', apiRouter)
 app.use('/db', libraryRouter);
 
