@@ -2,9 +2,8 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 
-
-const userController = require("./controllers/userController");
-const cookieController = require("./controllers/cookieController");
+// const userController = require("./controllers/userController");
+// const cookieController = require("./controllers/cookieController");
 // const sessionController = require("./controllers/sessionController");
 // note from kerri - commented out session controller temp due to node errors
 
@@ -37,7 +36,7 @@ app.get("/", /*cookieController.setSSIDCookie,*/ (req, res) => {
 //   console.log('login after')
 // })
 
-app.use('/api/:stuff', apiRouter,(req,res)=>{
+app.use('/api/', apiRouter,(req,res)=>{
   res.status(200).send(res.locals.books)
 });
 app.use('/db', libraryRouter);

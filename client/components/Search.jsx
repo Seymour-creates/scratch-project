@@ -1,4 +1,4 @@
-import { urlencoded } from 'express';
+
 import React, { useState } from 'react';
 import SearchResults from './SearchResults.jsx';
 
@@ -7,12 +7,15 @@ export default Search = () => {
   handleSearch = (e) => {
     setSearchBar(e.target.value)
   }
+
   const getBooks = async () => {
-    const retreiveBooks = await fetch('/api/'+searchBar)
+    const retreiveBooks = await fetch('/api/'+searchBar,{
+      method: 'GET'
+    })
     console.log(retreiveBooks)
   }
 
-  return
+  return (
   <div className='searchBar'>
     <form 
       name='bookSearch' 
@@ -20,5 +23,6 @@ export default Search = () => {
       <input type='text' onChange={(e)=>handleSearch(e)} value={searchBar}></input>
       <input type='submit' value='Search'></input>
     </form>
-  </div>;
+  </div>
+  )
 };

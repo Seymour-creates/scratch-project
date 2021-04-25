@@ -1,6 +1,6 @@
 module.exports = {
   mode: process.env.NODE_ENV,
-  entry: ['babel-polyfill','./client/index.js'],
+  entry: ['./client/index.js'],
   output: {
     path: __dirname + '/public',
     filename: 'bundle.js',
