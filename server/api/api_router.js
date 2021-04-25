@@ -1,20 +1,31 @@
 const express = require('express');
 const api_router = express.Router()
+const fetch = require('node-fetch');
 
+//Search Google Books API for user-input queries.
 api_router.get('/:books', async (req,res,next) => {
-    console.log('at API router!!!')
-    console.log(req.params.books,'req.params.books should be here')
+    
+    
     try {
-        const googleBooksAPI = 'https://www.googleapis.com/books/v1/volumes/'
-        const userBookRequestURI = encodeURIComponent(gooleBooksAPI + req.params.books)
-        console.log(userBookRequestURI,'search uri')
-        const requestBooks = await fetch(userBookRequestURI)
-        const booksFromApi = await requestBooks.json();
-        res.locals.books = booksFromApi;
+        
+        const googleBooksAPI = 'https://www.googleapis.com/books/v1/volumes?q='
+        const userRequestURI = encodeURI(googleBooksAPI.concat(req.params.books))
+        
+        //request specific items from API: ISBN-identifiers 13 & 10, Author, Title, Description, pageCount, imageLinks and a previewLink. 
+        //max return results set to 10
+        const requestBooks = await fetch(userRequestURI+'&maxResults=10&fields=items(volumeInfo/description,volumeInfo/title,volumeInfo/authors,volumeInfo/industryIdentifiers/identifier,volumeInfo/pageCount,volumeInfo/imageLinks,volumeInfo/previewLink)')
+        const booksFromAPI = await requestBooks.json();
+         console.log(booksFromAPI)
+        
+        //place API search results on res.locals object
+        res.locals.books = booksFromAPI;
+
+        next();
+        // Check terminal for log messages from error handler, if necessary
     } catch (err) {
         if (err) {return next({
-            Error : err,
-            log: 'Error in request to books API. Check route handling'
+            Error : err.message,
+            log: `Error in request to books API. Check route handling ${err.message}`
             })
         };
     };

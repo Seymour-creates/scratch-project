@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import SearchResults from './SearchResults.jsx';
 
-export default Search = () => {
+export default function Search()  {
   const [searchBar,setSearchBar] = useState('')
   handleSearch = (e) => {
     setSearchBar(e.target.value)
