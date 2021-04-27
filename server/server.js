@@ -23,7 +23,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, './client/html-scss')));
 
 app.get("/", /*cookieController.setSSIDCookie,*/ (req, res) => {
-    res.redirect('signup')
+    res.sendFile(path.resolve(__dirname,'../html-scss/index.html'))
 })
 
 //login page path
