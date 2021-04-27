@@ -1,10 +1,10 @@
 - App
   - Home
     - Header
-    - NavBar
+    - NavBar:
       - Profile
-      - Main (Home)
-      - MyBooks
+      - Main (Home - this is what displays by default)
+      - CurrentlyReading
         - Book
       - To Be Read
         - Book
