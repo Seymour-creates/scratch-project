@@ -1,0 +1,189 @@
+$mainColor: rgb(116, 20, 20, 0.95);
+$secondaryColor: rgb(224, 223, 223);
+$darkColor: rgba(78, 12, 12, 0.95);
+$mainColorTransparent: rgb(116, 20, 20, 0.35);
+$grayColor: rgb(170, 170, 170, 0.9);
+$orangeColor: #eda85ed3;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+html {
+  font-family: 'Noto Sans'
+}
+
+body {
+  margin: 0.1px;
+  background-image: url(https://i.ytimg.com/vi/YQc4WT0yDH4/maxresdefault.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  width:100%;
+}
+
+header {
+  text-align: center;
+  border: 1px solid $mainColor;
+  grid-column: 1 / span 2;
+  background-color: $mainColor;
+  color: $secondaryColor;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-shadow: 2px 2px 2px black;
+}
+
+main {
+  // border: 1px solid red;
+  display: grid;
+  grid-template-columns: 35% 65%;
+  height: 885px;
+  border-radius: 5px;
+  grid-template-columns: 1fr 3fr;
+  overflow: overlay;
+
+  #wunderpus {
+    position: relative;
+    left: 1050px;
+    top: 700px;
+  }
+  #biggiantdiv {
+    height: 150px;
+    width: 250px;
+  }
+}
+
+// everything in the nav bar
+nav {
+  grid-column: 1 / span 1;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  width: 200px;
+  background-color: $secondaryColor;
+  border-radius: 5px;
+  position: absolute;
+  margin-top: 150px;
+  margin-left: 10px;
+  box-shadow: 2px 2px 2px rgb(0, 0, 0);
+
+  #profileLink {
+    height: 270px;
+    border: 1px solid $mainColor;
+    color: $mainColor;
+    text-align: center;
+  }
+
+  .navLinks {
+    background-color: $mainColor;
+    border: 1px solid rgb(44, 1, 9);
+    height: 40px;
+    font-size: 1.3em;
+    text-align: center;
+    padding-top: 15px;
+    color: $secondaryColor;
+  }
+  .navLinks:hover {
+    animation: change-color 2s ease-out;
+    background-color: rgb(44, 1, 9);
+    color: $secondaryColor;
+    animation: change-background 1s ease infinite;
+  }
+
+  a {
+    color: inherit;
+  }
+  a:hover {
+    color: $secondaryColor;
+  }
+  a:link {
+    text-decoration: none;
+  }
+
+  @keyframes change-background {
+    0% {
+      background: $mainColor;
+    }
+    100% {
+      background: $darkColor;
+    }
+  }
+  max-width: 1fr;
+}
+.bodyDiv {
+  background-color: $mainColorTransparent;
+  margin-left: 300px;
+  margin-top: 150px;
+  overflow: scroll;
+  min-width: 250%;
+  height: 615px;
+  color: $secondaryColor;
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px 3px black;
+
+  .book,
+  .review {
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+    padding: 10px;
+    background-color: $orangeColor;
+    justify-content: start;
+    margin-left: 25%;
+    margin-top: 20px;
+    width: 500px;
+    min-height: 250px;
+    box-shadow: 2px 2px 2px black;
+    border-radius: 10px;
+  }
+
+  button,
+  #button {
+    height: 40px;
+    width: 140px;
+    font-size: 1em;
+    border-radius: 5px;
+    color: $secondaryColor;
+    background-color: $mainColor;
+    border: 1px solid rgba(78, 12, 12, 0.95);
+  }
+  button:hover,
+  #button:hover {
+    background-color: $darkColor;
+    color: $secondaryColor;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px black;
+  }
+
+  input {
+    width: 400px;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    border: 1px solid $darkColor;
+    box-shadow: 1px 1px 1px black;
+    margin-bottom: 5px;
+    background-color: $secondaryColor;
+  }
+
+  #welcome {
+    font-size: 3em;
+    text-align: center;
+  }
+
+  #searchBar {
+    width: 500px;
+    height: 40px;
+    margin-left: 20px;
+    border-radius: 10px;
+  }
+  #searchResult {
+    background-color: $orangeColor;
+    margin: 20px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid black;
+    box-shadow: 2px 2px 2px black;
+  }
+}
+

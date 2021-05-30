@@ -1,0 +1,17 @@
+- App
+  - Home
+    - Header
+    - NavBar:
+      - Profile
+      - Main (Home - this is what displays by default)
+      - CurrentlyReading
+        - Book
+      - To Be Read
+        - Book
+      - Complete
+        - Book
+      - Reviews
+        - Review
+      - Search
+        - SearchResults
+          - Search Book
