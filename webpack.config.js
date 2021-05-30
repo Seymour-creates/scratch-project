@@ -1,9 +1,15 @@
 module.exports = {
   mode: process.env.NODE_ENV,
-  entry: './client/index.js',
+  entry: ['./client/index.js'],
   output: {
     path: __dirname + '/public',
     filename: 'bundle.js',
+  },
+  stats: {
+    errorDetails : true
+  },
+  resolve: {
+    fallback: {"path": require.resolve("path-browserify")}
   },
   module: {
     rules: [

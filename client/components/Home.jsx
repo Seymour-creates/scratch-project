@@ -9,6 +9,9 @@ export default function Home() {
   return (
     <main>
       <Header />
+<<<<<<< HEAD
+      {/* <NavBar /> */}
+=======
       <NavBar />
       <div id="biggiantdiv">
         {" "}
@@ -19,6 +22,7 @@ export default function Home() {
           width="250px"
         />
       </div>
+>>>>>>> 62ce400b0a9e0ba1bfdf2b1e18f7c2ececea735c
     </main>
   );
 }

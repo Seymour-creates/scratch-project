@@ -8,6 +8,7 @@ const userController = require("./controllers/userController");
 // const cookieController = require("./controllers/cookieController");
 // const sessionController = require("./controllers/sessionController");
 
+
 const app = express();
 const PORT = 3000;
 
@@ -84,6 +85,8 @@ app.use("/db/", libraryRouter);
 // app.post("/login", userController.verifyUser, (req, res) => {
 //   res.redirect("home");
 // });
+
+
 
 // catch all for requests to unknown route
 
